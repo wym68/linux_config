@@ -1,0 +1,41 @@
+# 根据用户输入新建一个Markdown格式的表格,例：44tb<Tab>
+snippet '(?<!\\)([0-9])([0-9])tb' "new table" r
+$1`!p 
+x=match.group(1)
+y=match.group(2)
+row1=""
+row2="" 
+for i in range(int(x)):
+    row1+="| "
+    row2+="|:-:"
+row1+="|\n"
+row2+="|\n"
+out=row1+row2+int(y)*row1
+snip.rv=out
+`$0
+endsnippet
+
+# mk 表示 make Ketax
+snippet mk "Math" wA
+$${1}$`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+`$2
+endsnippet
+
+# dm 表示 Display math
+snippet dm "Math" wA
+$$
+${1:${VISUAL}}
+$$ $0
+endsnippet
+
+# 若输入 ‘/’，则检查符号前的字符是否为数字或者字母，
+# 将数字或字母作为分子扩展为Latex分数形式然后在分母部分等待输入
+context "math()"
+priority 1000
+snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wrA
+\\frac{`!p snip.rv = match.group(1)`}{$1}$0
+endsnippet
