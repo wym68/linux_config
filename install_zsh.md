@@ -6,6 +6,7 @@ sudo add-apt-repository ppa:aslatter/ppa
 sudo apt update
 sudo apt install alacritty
 ??设置alacritty为默认终端模拟器，配置（将alacritty.yml配置文件放在～/.config/alacritty/ 下）
+双击安装字体
 
 ## install zsh
 sudo apt install zsh
