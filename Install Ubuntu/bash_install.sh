@@ -25,11 +25,6 @@ sudo apt-get install -y nodejs
 
 #after install miniconda, creat py39 and pip install numpy pandas matplotlib autopep8 ipdb neovim
 
-#config neovim
-#sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-#       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-#set zsh
-#chsh -s $(which zsh)   chsh -s /usr/bin/zsh    reboot
-#Install on my zsh
-#sh -c "$(curl -fsSL https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh)"
+#Install OCR
+sudo add-apt-repository ppa:sandromani/gimagereader
+sudo apt-get install gimagereader tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim
